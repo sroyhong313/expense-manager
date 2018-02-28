@@ -43,8 +43,8 @@ router.route('/update')
 });
 
 router.get('getAll', function(req, res) {
-    var monthRec = req.query.month;
-    var yearRec = requ.query.year;
+    var monthRec = re.query.month;
+    var yearRec = req.query.year;
     if (monthRec && monthRec != 'All') {
         Expense.find({ year : yearRec}, function(err, expenses) {
             if (err) {
