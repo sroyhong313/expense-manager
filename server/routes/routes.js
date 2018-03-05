@@ -42,15 +42,23 @@ router.route('/update')
     });
 });
 
-router.get('getAll', function(req, res) {
-    var monthRec = re.query.month;
+router.get('/getAll', function(req, res) {
+    var monthRec = req.query.month;
     var yearRec = req.query.year;
     if (monthRec && monthRec != 'All') {
-        Expense.find({ year : yearRec}, function(err, expenses) {
+        Expense.find({$and: [ {month : monthRec}, {year : yearRec} ]},
+            function(err, expenses) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(expenses)
+            });
+    } else {
+        Expense.find({year : yearRec}, function(err, expenses) {
             if (err) {
                 res.send(err);
             }
-            res.json(expenses)
+            res.json(expenses);
         });
     }
 });
