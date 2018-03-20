@@ -3,10 +3,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Add from './Add';
-import Update from './Update';
 import '../css/App.css';
 
+import Add from './Add';
+import Update from './Update';
+import Delete from './Delete';
 
 class App extends React.Component {
   constructor() {
@@ -49,6 +50,7 @@ class App extends React.Component {
                 <th className="button-col">Month</th>
                 <th className='button-col'>Year</th>
                 <th className="button-col">Update</th>
+                <th className="button-col">Delete</th>
               </tr>
             </thead>
           <tbody>
@@ -63,6 +65,9 @@ class App extends React.Component {
                     <td className='button-col'>{exp.year}</td>
                     <td className="button-col">
                       <Update expense={exp} />
+                    </td>
+                    <td className="button-col">
+                      <Delete id={exp._id} expense={exp} />
                     </td>
                   </tr>
                 )
