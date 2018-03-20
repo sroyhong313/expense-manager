@@ -110,7 +110,7 @@ class Add extends React.Component {
                     <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.state.closeModal} contentLabel="Add Expense"
                     className="Modal">
                         <Link to={{pathname : '/', search : '' }} style={{ textDecoration: 'none' }}>
-                            <Button bsStyle="danger" bsSize="mini" onClick={ this.closeModal }>
+                            <Button bsStyle="danger" bsSize="xsmall" onClick={ this.closeModal }>
                                 <span className="closebtn glyphicon glyphicon-remove"></span>
                             </Button>
                         </Link><br/>
@@ -167,7 +167,7 @@ class Add extends React.Component {
                         <div className="button-center">
                             <h3>{this.state.messageFromServer}</h3>
                             <Link to={{ pathname: '/', search: '' }} style={{ textDecoration: 'none' }}>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>
+                                <Button bsStyle="success" bsSize="xsmall" onClick={this.closeModal}>
                                     Close the Dialog
                                 </Button>
                             </Link>

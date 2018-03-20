@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Add from './Add';
+import Update from './Update';
 import '../css/App.css';
 
 
@@ -11,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedMonth : 'Jan',
+      selectedMonth : 'All',
       selectedYear : 2016,
       data : []
     };
@@ -47,6 +48,7 @@ class App extends React.Component {
                 <th className="button-col">Amount</th>
                 <th className="button-col">Month</th>
                 <th className='button-col'>Year</th>
+                <th className="button-col">Update</th>
               </tr>
             </thead>
           <tbody>
@@ -59,6 +61,9 @@ class App extends React.Component {
                     <td className='button-col'>{exp.amount}</td>
                     <td className='button-col'>{exp.month}</td>
                     <td className='button-col'>{exp.year}</td>
+                    <td className="button-col">
+                      <Update expense={exp} />
+                    </td>
                   </tr>
                 )
               })
