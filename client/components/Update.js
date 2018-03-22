@@ -39,6 +39,16 @@ class Update extends React.Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            id : nextProps.expense._id,
+            description : nextProps.expense.description,
+            // amount : nextProps.expense.amount,
+            month : nextProps.expense.month,
+            year : nextProps.expense.year
+        });
+    }
+
     openModal() {
         this.setState({
             modalIsOpen : true
@@ -113,12 +123,12 @@ class Update extends React.Component {
                         onRequestClose={this.closeModal}
                         contentLabel="Add Expense"
                         className="Modal">
-                    <Link to={{pathname : '/', search: '' }} style={{ textDecoration : 'none' }}>
+                    <Link to={{pathname : '/', search: '?month=' + this.state.month + '&year=' + this.state.year }}
+                     style={{ textDecoration : 'none' }}>
                         <Button bsStyle="danger" bsSize="xsmall" onClick={this.closeModal}>
                             <span className="closebtn glyphicon glyphicon-remove"></span>
                         </Button>
                     </Link><br />
-
                     <fieldset>
                         <label for="description">Description:</label>
                         <input type="text" id="description" name="description" value={this.state.description}
@@ -173,7 +183,8 @@ class Update extends React.Component {
                      className="Modal">
                     <div className="button-center">
                         <h3>{this.state.messageFromServer}</h3>
-                        <Link to={{ pathname : '/', search : '' }} style={{ textDecoration : 'none' }}>
+                        <Link to={{ pathname : '/', search : '?month=' + this.state.month + '&year=' + this.state.year }}
+                         style={{ textDecoration : 'none' }}>
                             <Button bsStyle="success" bsSize="xsmall" onClick={this.closeModal}>Close the Dialog</Button>
                         </Link>
                     </div>
