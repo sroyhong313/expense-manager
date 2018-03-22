@@ -21,14 +21,15 @@
     "webpack": "^4.0.1"
   },
   "scripts": {
-    "webpack": "webpack",
-    "start": "npm run webpack && npm run server",
-    "server" : "nodemon --exec babel-node -- bin/www",
+    "webpack": "webpack -d --watch",
+    "start": "concurrently --kill-others-on-fail \"npm run webpack\" \"npm run server\"",
+    "server": "nodemon --exec babel-node -- bin/www",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "concurrently": "^3.5.1",
     "webpack-cli": "^2.0.9"
   }
 }

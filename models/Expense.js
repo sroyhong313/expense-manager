@@ -1,7 +1,7 @@
 // models/Expense.js
 
 var mongoose = require('mongoose');
-var schema = mongoose.Schema();
+var Schema = mongoose.Schema;
 
 var expenseSchema = new Schema({
     description: String,
@@ -10,4 +10,4 @@ var expenseSchema = new Schema({
     year : Number
 });
 
-module.exports = mongoose.Model('Expense', expenseSchema);
+module.exports = mongoose.model('Expense', expenseSchema);
