@@ -1,4 +1,4 @@
-#Expense Manager
+# Expense Manager
 
-##Smart Online Budget Planner to manage spendings
+## Smart Online Budget Planner to manage spendings
 
